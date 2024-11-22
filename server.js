@@ -1,7 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import path from 'path';
-import bcrypt from 'bcrypt';
 import { fileURLToPath } from 'url';
 import pkg from 'pg';
 
