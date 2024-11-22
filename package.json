@@ -1,11 +1,12 @@
 {
-    "name": "es6-express-postgres",
+    "name": "cabmate-project",
     "version": "1.0.0",
     "type": "module",
     "main": "server.js",
     "scripts": {
         "start": "node server.js",
         "dev": "nodemon server.js"
+         "build": "echo \"No build necessary for static files\""
     },
     "dependencies": {
         "bcrypt": "^5.1.1",
