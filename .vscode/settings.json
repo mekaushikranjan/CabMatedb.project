@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "xprotocol",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3303,
+            "driver": "MariaDB",
+            "name": "mariadb cabmate",
+            "database": "cabmate",
+            "username": "root",
+            "password": "Kaushik@17",
+            "connectionTimeout": 30
+        }
+    ]
+}

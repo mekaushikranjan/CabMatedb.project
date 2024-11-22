@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="pay.css">
+</head>
+<body>
+    <div class="payment-details">
+        <h3>Payment Details</h3>
+        <p><strong>Amount to be Paid:</strong> ₹<span id="amountToBePaid">0</span></p>
+        <p><strong>Cab Type:</strong> <span id="paymentCabType"></span></p>
+        <p><strong>Car Brand:</strong> <span id="paymentCarBrand"></span></p>
+    </div>
+
+    <div class="payment-form">
+        <h3>Enter Payment Details</h3>
+        <form id="paymentForm">
+            <label for="name">Cardholder Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="cardNumber">Card Number:</label>
+            <input type="text" id="cardNumber" name="cardNumber" required>
+
+            <label for="expiryDate">Expiry Date:</label>
+            <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" required>
+
+            <button type="submit" id="payButton">Get otp</button>
+        </form>
+    </div>
+
+    <script src="pay-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Success</title>
+    <link rel="stylesheet" href="success.css">
+</head>
+<body>
+    <div class="success-message">
+        <h2>Payment Successful</h2>
+        <p>Thank you for your payment! Your booking has been confirmed.</p>
+    </div>
+
+    <div class="payment-details">
+        <h3>Payment Details</h3>
+        <p><strong>Amount Paid:</strong> ₹<span id="amountPaid"></span></p>
+        <p><strong>Cab Type:</strong> <span id="paymentCabType"></span></p>
+        <p><strong>Car Brand:</strong> <span id="paymentCarBrand"></span></p>
+        <p><strong>Driver:</strong> <span id="paymentDriver"></span></p>
+        <p><strong>Booking Status:</strong> Confirmed</p>
+    </div>
+
+    <div class="actions">
+        <button id="backToHome">Back to Home</button>
+        <button id="viewBooking">View Booking</button>
+    </div>
+
+    <script src="success-script.js"></script>
+</body>
+</html>
