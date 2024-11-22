@@ -4,7 +4,6 @@
 
 [build.environment]
   NODE_VERSION = "14"
-
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
