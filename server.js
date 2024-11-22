@@ -92,7 +92,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-const port = 26257;  // Default CockroachDB port
+const port = 3000;  // Default CockroachDB port
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
