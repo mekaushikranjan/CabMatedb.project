@@ -1,36 +1,48 @@
-// login.js
+// signup.js
 
-document.getElementById('login-form').addEventListener('submit', function(event) {
-  event.preventDefault();  // Prevent the default form submission
+document.getElementById('signup-form').addEventListener('submit', async function (event) {
+  event.preventDefault(); // Prevent form submission
 
-  // Get the form values
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
+  // Get form data
+  const first_name = document.getElementById('first-name').value.trim();
+  const last_name = document.getElementById('last-name').value.trim();
+  const phone_number = document.getElementById('phone').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value.trim();
+  const confirmPassword = document.getElementById('confirm-password').value.trim();
 
-  // Send the data to the server via fetch API
-  fetch('/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      email: email,
-      password: password
-    }),
-  })
-  .then(response => response.json())
-  .then(data => {
-    // Handle success or error
-    if (data.success) {
-      alert('Login successful!');
-      // Redirect user to a new page after successful login, for example:
-      // window.location.href = '/dashboard'; // Or whatever your app's next page is
+  // Check if passwords match
+  if (password !== confirmPassword) {
+    alert('Passwords do not match!');
+    return;
+  }
+
+  try {
+    // Send data to the backend
+    const response = await fetch('/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        first_name,
+        last_name,
+        phone_number,
+        email,
+        password,
+      }),
+    });
+
+    const data = await response.json();
+    if (response.ok) {
+      alert('Signup successful!');
+      // Redirect to another page, e.g., login
+      window.location.href = 'login.html';
     } else {
-      alert('Error: ' + data.message);
+      alert(`Error: ${data.message}`);
     }
-  })
-  .catch(error => {
+  } catch (error) {
     console.error('Error:', error);
-    alert('An error occurred');
-  });
+    alert('An error occurred. Please try again.');
+  }
 });
