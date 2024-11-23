@@ -37,27 +37,28 @@ client.connect((err) => {
 app.post('/signup', async (req, res) => {
   const { email, password, first_name, last_name, phone_number } = req.body;
 
+  // Validate request body
   if (!email || !password || !first_name || !last_name || !phone_number) {
     return res.status(400).json({ message: 'All fields are required' });
   }
 
-  // Check if the user already exists
   try {
-    const result = await client.query('SELECT * FROM users WHERE email = $1', [email]);
-    if (result.rows.length > 0) {
+    // Check if user already exists
+    const existingUser = await client.query('SELECT * FROM users WHERE email = $1', [email]);
+    if (existingUser.rows.length > 0) {
       return res.status(400).json({ message: 'User already exists' });
     }
 
-    // Insert new user into the database
+    // Insert user into the database
     await client.query(
       'INSERT INTO users (email, password, first_name, last_name, phone_number) VALUES ($1, $2, $3, $4, $5)',
       [email, password, first_name, last_name, phone_number]
     );
 
-    return res.status(201).json({ success: true, message: 'Signup successful' });
+    res.status(201).json({ success: true, message: 'Signup successful' });
   } catch (err) {
     console.error('Database error:', err);
-    return res.status(500).json({ message: 'Database error: ' + err.message });
+    res.status(500).json({ message: 'Database error: ' + err.message });
   }
 });
 
